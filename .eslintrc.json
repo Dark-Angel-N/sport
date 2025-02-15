@@ -1,0 +1,28 @@
+{
+  "env": {
+    "browser": true,
+    "node": true,
+    "es2021": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended"
+  ],
+  "parserOptions": {
+    "ecmaVersion": 12,
+    "sourceType": "module"
+  },
+  "plugins": ["react"],
+  "rules": {
+    "no-irregular-whitespace":"off",
+    "react/jsx-key":"off",
+    "react/react-in-jsx-scope":"off",
+    "react/no-unknown-property":"off",
+    "no-extra-boolean-cast":"off",
+    "no-useless-catch":"off",
+    "no-undef": "off",
+    "indent": "off",
+    "no-unused-vars": "off",  // Warn for unused variables
+    "react/prop-types": "off" // Disable prop-type checking in React
+  }
+}

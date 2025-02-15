@@ -1,0 +1,301 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+body {
+    font-family: "Roboto", serif !important;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+.scrolling::-webkit-scrollbar {
+    height: 0;
+}
+
+.home_slider button.button-left {
+    position: absolute;
+    left: 10px;
+    align-self: center;
+    width: 24px;
+    height: 24px;
+    background-color: white;
+    border-radius: 50%;
+}
+
+.home_slider button.button-right {
+    position: absolute;
+    right: 10px;
+    align-self: center;
+    width: 24px;
+    height: 24px;
+    background-color: white;
+    border-radius: 50%;
+}
+
+.home_slider button i {
+    font-size: 12px;
+    line-height: 10px;
+}
+
+.news_slider .owl-nav {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.news_slider .owl-carousel .owl-nav button.owl-prev {
+    position: absolute;
+    left: 10px;
+    width: 24px;
+    height: 24px;
+    background-color: white;
+    border-radius: 50%;
+}
+
+.news_slider .owl-carousel .owl-nav button.owl-next {
+    position: absolute;
+    right: 10px;
+    width: 24px;
+    height: 24px;
+    background-color: white;
+    border-radius: 50%;
+}
+
+.before_line::before {
+    content: '';
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    position: absolute;
+    bottom: -15px;
+    left: 0;
+    width: 100%;
+}
+
+.lining::before {
+    content: '';
+    width: 95%;
+    height: 1px;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.notification_modal .modal-dialog {
+    overflow: hidden;
+    max-width: 530px;
+}
+
+.notification_modal .modal-content {
+    overflow: hidden;
+}
+
+/* .login_modal .modal-dialog {
+    margin-top: 50px;
+} */
+
+.sidebar.offcanvas.offcanvas-start {
+    width: 300px !important;
+}
+
+.modal.fade .modal-dialog {
+    transform: scale(0.8) !important;
+}
+
+.modal.show .modal-dialog {
+    transform: scale(1) !important;
+}
+
+.settings::-webkit-scrollbar {
+    width: 0;
+}
+
+.main_menu {
+    position: relative;
+
+}
+
+.main_menu .sub_menu {
+    position: absolute;
+    top: 0;
+    right: 100%;
+    padding: 0 14px 0 0;
+    opacity: 0;
+    transform: translateX(5%);
+    transition: transform 400ms cubic-bezier(0.19, 0.87, 0.6, 1), opacity 300ms ease;
+}
+
+.main_menu:hover .sub_menu {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.service_tab.nav-tabs {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
+    gap: 40px;
+}
+
+.service_tab.nav-tabs .nav-link.active {
+    background-color: transparent;
+    border: 0;
+    border-bottom: 3px solid rgba(86, 97, 175, 0.2);
+    color: var(--theme-color);
+}
+
+.service_tab.nav-tabs .nav-link {
+    border: 0;
+    font-size: 20px;
+    color: #000;
+    padding: 0 0 10px 0;
+}
+
+.service_tab.nav-tabs .nav-link:hover {
+    color: var(--theme-color);
+}
+
+.service_tab.nav-tabs {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+}
+
+.service_tab.nav-tabs::-webkit-scrollbar {
+    height: 0;
+}
+
+.payment_tooltip span {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.payment_tooltip:hover span {
+    opacity: 1;
+    visibility: visible;
+}
+
+.react-datepicker-wrapper {
+    display: block !important;
+}
+
+.main_menus {
+    position: relative;
+}
+
+.main_menus .sub_menus {
+    width: 200px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 9;
+    padding-top: 10px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.main_menus .sub_menus1,
+.main_menus .peta_menus1 {
+    background-color: white;
+    border-radius: 6px;
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.4);
+}
+
+.main_menus:hover .sub_menus {
+    opacity: 1;
+    visibility: visible;
+}
+
+.main_menus .peta_menus {
+    width: 200px;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    z-index: 9;
+    padding-top: 10px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.main_menus .sub_menus a:hover+.peta_menus {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+.react-tel-input .form-control {
+    border: 0 !important;
+    background-color: transparent !important;
+    box-shadow: none !important;
+}
+
+.react-tel-input .flag-dropdown {
+    background-color: transparent !important;
+    border: 0 !important;
+}
+
+.react-tel-input .selected-flag:hover,
+.react-tel-input .selected-flag:focus {
+    background-color: transparent !important;
+    border: 0 !important;
+}
+
+.dropdown-toggle::after {
+    display: none !important;
+}
+
+.dropdown-item:active {
+    background-color: #f8f9fa !important;
+    color: #000 !important;
+}
+
+/* Add this in your main CSS file or component-specific CSS */
+.web-social-share {
+    --background: white;
+    --color: black;
+    --button-background: #007bff;
+    --button-color: white;
+    --button-border-radius: 4px;
+}
+
+.border_after::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 95%;
+    height: 1px;
+    background-color: #e2e2e2;
+}
+
+.ranking.nav-tabs {
+    border: 0 !important;
+    background-color: #fff;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    padding: 2px;
+    justify-content: space-between;
+}
+
+.ranking .nav-link {
+    border-radius: 20px !important;
+    color: #474747 !important;
+}
+
+.ranking .nav-link.active {
+    background-color: #0033A0 !important;
+    color: #fff !important;
+}
+
+.inner_rank .nav-link.active {
+    color: #0033A0 !important;
+    border-bottom: 2px solid #0033A0 !important;
+}
+
+.inner_rank .nav-link {
+    color: #474747 !important;
+    border: 0 !important;
+}

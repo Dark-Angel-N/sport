@@ -1,0 +1,60 @@
+name: Deploy React App to Azure VM (Ubuntu)
+
+on:
+  push:
+    branches:
+      - master  # Trigger deployment when pushing to the 'master' branch
+  workflow_dispatch: 
+
+jobs:
+  build-and-deploy: 
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3  
+
+    # Set up Node.js
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '16'  # Use your preferred Node.js version
+    
+    # Install dependencies
+    - name: Install dependencies
+      run: npm install
+
+    # Lint the code (optional but useful)
+    - name: fix indent
+      run: npm run lint
+
+    # Build the React app
+    - name: Build the React app
+      run: npm run build
+
+    # Deploy to Azure VM
+    - name: Deploy to Azure VM
+      env:
+        AZURE_VM_HOST: ${{ secrets.AZURE_VM_HOST1}}
+        AZURE_VM_USER: ${{ secrets.AZURE_VM_USER1}} 
+      run: |
+        # Set the private key permissions
+        chmod 400 Sportscrazy_key.pem  
+    
+        # Test SSH connection before copying files
+        echo "Testing SSH connection to the Azure VM..."
+        ssh -o StrictHostKeyChecking=no -i Sportscrazy_key.pem $AZURE_VM_USER@$AZURE_VM_HOST 'echo "SSH connection successful!"'
+    
+        if [ $? -eq 0 ]; then
+            echo "SSH connection successful, proceeding with file transfer and server restart."
+    
+            # Copy the build files to the Azure VM using SCP
+            scp -o StrictHostKeyChecking=no -i Sportscrazy_key.pem -r ./build/* $AZURE_VM_USER@$AZURE_VM_HOST:/var/www/html/
+    
+            # SSH into Azure VM and restart Nginx (or your server of choice)
+            ssh -o StrictHostKeyChecking=no -i Sportscrazy_key.pem $AZURE_VM_USER@$AZURE_VM_HOST 'sudo systemctl restart nginx'
+        else
+            echo "SSH connection failed. Please check your configuration."
+            exit 1
+        fi
+            
