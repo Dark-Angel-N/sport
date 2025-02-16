@@ -37,7 +37,7 @@ const CricketNews = () => {
                 <OwlCarousel className="owl-theme" loop items={1} margin={10} nav dots={false}>
                   {posts.map((post) =>  {
                     return(
-                    <div className="item relative" key={post.id}>
+                    <div className="item relative" >
                       <img 
                         src={post.featured_image_url} 
                         alt={post.title.rendered} 
