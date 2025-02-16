@@ -6,7 +6,7 @@ import { PiDotOutlineFill } from "react-icons/pi";
 import { useState, useEffect } from "react";
 import { FaArrowTrendUp } from "react-icons/fa6";
 
-const API_URL = "https://pranavakumar.com/wp-json/wp/v2/posts"; // Replace with your API
+const API_URL = "https://pranavakumar.com/wp-json/wp/v2/posts";
 
 const CricketNews = () => {
   const [posts, setPosts] = useState([]);
@@ -19,7 +19,7 @@ const CricketNews = () => {
   }, []);
 
   return (
-    <div className="pb-5 custom-class">
+    <div className="pb-5">
       <h1 className="md:text-[28px] text-[24px] mb-4">Cricket News</h1>
 
       <div className="mt-4">
@@ -27,24 +27,26 @@ const CricketNews = () => {
           <div className="col-xl-10 col-md-9">
             <div className="row gy-4">
               <div className="col-xl-7 news_slider">
-              <OwlCarousel className='owl-theme' loop items={1} margin={10} nav dots={false}>
-                  {
-                    ['1', '2', '3', '4', '5'].map((index) => {
-                      return (
-                        <div class='item relative'>
-                          <img src="/assets/images/svg/banner2.png" alt="banner" className='rounded-[10px]' />
-                          <img src="/assets/images/svg/layer.png" alt="layer" className='absolute top-0 left-0' />
-                          <div className='absolute bottom-10 px-4'>
-                            <a href='/internal-page' className='text-white block text-lg mb-2 hover:!underline'>India vs Bangladesh 2nd Test : How Invincible have been Bumrah in all three formats of the game?</a>
-                            <div className='text-white font-[300] text-sm d-flex items-center gap-3'>
-                              <span>By Ginny Dennis</span>
-                              <span>Just now</span>
-                            </div>
-                          </div>
+                <OwlCarousel className="owl-theme" loop items={1} margin={10} nav dots={false}>
+                  {posts.map((post) => (
+                    <div className="item relative" key={post.id}>
+                      <img
+                        src={post.featured_image_url || "/assets/images/svg/banner2.png"}
+                        alt={post.title.rendered}
+                        className="rounded-[10px]"
+                      />
+                      <img src="/assets/images/svg/layer.png" alt="layer" className="absolute top-0 left-0" />
+                      <div className="absolute bottom-10 px-4">
+                        <a href={`/post/${post.id}`} className="text-white block text-lg mb-2 hover:!underline">
+                          {post.title.rendered}
+                        </a>
+                        <div className="text-white font-[300] text-sm d-flex items-center gap-3">
+                          <span>By {post._embedded?.author?.[0]?.name || "Unknown Author"}</span>
+                          <span>{new Date(post.date).toLocaleDateString()}</span>
                         </div>
-                      )
-                    })
-                  }
+                      </div>
+                    </div>
+                  ))}
                 </OwlCarousel>
 
                 {posts.length > 0 && (
