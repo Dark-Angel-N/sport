@@ -12,12 +12,12 @@ const CricketNews = () => {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    fetch("https://pranavakumar.com/wp-json/wp/v2/posts?_embed")
+    fetch("https://pranavakumar.com/wp-json/wp/v2/posts")
       .then((response) => response.json())
       .then((data) => {
         const updatedPosts = data.map((post) => ({
           ...post,
-          featured_image_url: post.featured_image_url,
+          featured_image_url: post.featured_image_url || "/assets/images/svg/banner2.png", // Fallback image
         }));
         setPosts(updatedPosts);
       })
@@ -35,8 +35,8 @@ const CricketNews = () => {
             <div className="row gy-4">
               <div className="col-xl-7 news_slider">
                 <OwlCarousel className="owl-theme" loop items={1} margin={10} nav dots={false}>
-                  {posts.map((post) => (
-                    <div className="item relative" key={post.id}>
+                  {posts.map((post) => ( 
+                    <div className="item relative" key={post.id}>{console.log(post.featured_image_url)}
                       <img 
                         src={post.featured_image_url || "/assets/images/svg/banner2.png"} 
                         alt={post.title.rendered} 
