@@ -30,11 +30,7 @@ const CricketNews = () => {
                 <OwlCarousel className="owl-theme" loop items={1} margin={10} nav dots={false}>
                   {posts.map((post) => (
                     <div className="item relative" key={post.id}>
-                      <img
-                        src={post.featured_image_url || "https://pranavakumar.com/wp-content/uploads/2025/02/default.webp"}
-                        alt={post.title.rendered}
-                        className="rounded-[10px]"
-                      />
+                      <img src="/assets/images/svg/banner2.png" alt="banner" className='rounded-[10px]' />
                       <img src="/assets/images/svg/layer.png" alt="layer" className="absolute top-0 left-0" />
                       <div className="absolute bottom-10 px-4">
                         <a href={`/post/${post.id}`} className="text-white block text-lg mb-2 hover:!underline">
