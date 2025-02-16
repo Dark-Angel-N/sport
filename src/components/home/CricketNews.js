@@ -36,9 +36,9 @@ const CricketNews = () => {
               <div className="col-xl-7 news_slider">
                 <OwlCarousel className="owl-theme" loop items={1} margin={10} nav dots={false}>
                   {posts.map((post) => ( 
-                    <div className="item relative" key={post.id}>{console.log(post.featured_image_url)}
+                    <div className="item relative" key={post.id}>
                       <img 
-                        src={post.featured_image_url || "/assets/images/svg/banner2.png"} 
+                        src={"/assets/images/svg/banner2.png"} 
                         alt={post.title.rendered} 
                         className="rounded-[10px]" 
                         onError={(e) => e.target.src = "/assets/images/svg/banner2.png"} // Fallback image in case of error
