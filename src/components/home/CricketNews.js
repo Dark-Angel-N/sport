@@ -6,24 +6,17 @@ import { PiDotOutlineFill } from "react-icons/pi";
 import { useState, useEffect } from "react";
 import { FaArrowTrendUp } from "react-icons/fa6";
 
-const API_URL = "https://pranavakumar.com/wp-json/wp/v2/posts"; 
+const API_URL = "https://pranavakumar.com/wp-json/wp/v2/posts"; // Replace with your API
 
 const CricketNews = () => {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    fetch("https://pranavakumar.com/wp-json/wp/v2/posts")
+    fetch(API_URL)
       .then((response) => response.json())
-      .then((data) => {
-        const updatedPosts = data.map((post) => ({
-          ...post,
-          featured_image_url: post.featured_image_url || "https://pranavakumar.com/wp-content/uploads/2025/02/default.webp", 
-        }));
-        setPosts(updatedPosts);
-      })
-      .catch((error) => console.error("Error fetching posts:", error));
+      .then((data) => setPosts(data))
+      .catch((error) => console.error("Error fetching data:", error));
   }, []);
-  
 
   return (
     <div className="pb-5 custom-class">
@@ -35,14 +28,13 @@ const CricketNews = () => {
             <div className="row gy-4">
               <div className="col-xl-7 news_slider">
                 <OwlCarousel className="owl-theme" loop items={1} margin={10} nav dots={false}>
-                  {posts.map((post) =>  {
-                    return(
-                    <div className="item relative" >
-                      <img 
-                        src={post.featured_image_url} 
-                        alt={post.title.rendered} 
-                        className="rounded-[10px]" />
-
+                  {posts.map((post) => (
+                    <div className="item relative" key={post.id}>
+                      <img
+                        src={post.featured_image_url || "https://pranavakumar.com/wp-content/uploads/2025/02/default.webp"}
+                        alt={post.title.rendered}
+                        className="rounded-[10px]"
+                      />
                       <img src="/assets/images/svg/layer.png" alt="layer" className="absolute top-0 left-0" />
                       <div className="absolute bottom-10 px-4">
                         <a href={`/post/${post.id}`} className="text-white block text-lg mb-2 hover:!underline">
@@ -54,8 +46,7 @@ const CricketNews = () => {
                         </div>
                       </div>
                     </div>
-                  )}
-                  )}
+                  ))}
                 </OwlCarousel>
 
                 {posts.length > 0 && (
