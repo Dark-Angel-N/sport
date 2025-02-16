@@ -2,7 +2,9 @@ import React from 'react'
 import OwlCarousel from 'react-owl-carousel';
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
+import { PiDotOutlineFill } from "react-icons/pi";
 import { useState, useEffect } from "react";
+import { FaArrowTrendUp } from "react-icons/fa6";
 
 const API_URL = "https://pranavakumar.com/wp-json/wp/v2/posts"; // Replace with your API
 
@@ -10,11 +12,18 @@ const CricketNews = () => {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    fetch(API_URL)
+    fetch("https://pranavakumar.com/wp-json/wp/v2/posts?_embed")
       .then((response) => response.json())
-      .then((data) => setPosts(data))
-      .catch((error) => console.error("Error fetching data:", error));
+      .then((data) => {
+        const updatedPosts = data.map((post) => ({
+          ...post,
+          featured_image_url: post.featured_image_url,
+        }));
+        setPosts(updatedPosts);
+      })
+      .catch((error) => console.error("Error fetching posts:", error));
   }, []);
+  
 
   return (
     <div className="pb-5 custom-class">
@@ -29,7 +38,7 @@ const CricketNews = () => {
                   {posts.map((post) => (
                     <div className="item relative" key={post.id}>
                       <img
-                        src={post._embedded?.["wp:featuredmedia"]?.[0]?.source_url || "/assets/images/svg/banner2.png"}
+                        src={post.featured_image_url }
                         alt={post.title.rendered}
                         className="rounded-[10px]"
                       />
