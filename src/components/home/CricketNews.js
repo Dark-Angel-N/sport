@@ -2,11 +2,7 @@ import React from 'react'
 import OwlCarousel from 'react-owl-carousel';
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
-import { FaArrowTrendUp } from "react-icons/fa6";
-import { PiDotOutlineFill } from "react-icons/pi";
 import { useState, useEffect } from "react";
-import { FaArrowTrendUp } from "react-icons/fa6";
-import { PiDotOutlineFill } from "react-icons/pi";
 
 const API_URL = "https://pranavakumar.com/wp-json/wp/v2/posts"; // Replace with your API
 
