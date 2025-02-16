@@ -21,7 +21,7 @@ const CricketNews = () => {
   }, []);
 
   return (
-    <div className="pb-5">
+    <div className="pb-5 custom-class">
       <h1 className="md:text-[28px] text-[24px] mb-4">Cricket News</h1>
 
       <div className="mt-4">
