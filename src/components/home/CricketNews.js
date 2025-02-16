@@ -35,7 +35,8 @@ const CricketNews = () => {
             <div className="row gy-4">
               <div className="col-xl-7 news_slider">
                 <OwlCarousel className="owl-theme" loop items={1} margin={10} nav dots={false}>
-                  {posts.map((post) => ( 
+                  {posts.map((post) =>  {
+                    return(
                     <div className="item relative" key={post.id}>
                       <img 
                         src={post.featured_image_url} 
@@ -53,7 +54,8 @@ const CricketNews = () => {
                         </div>
                       </div>
                     </div>
-                  ))}
+                  )}
+                  )}
                 </OwlCarousel>
 
                 {posts.length > 0 && (
