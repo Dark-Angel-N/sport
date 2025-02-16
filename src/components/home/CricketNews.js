@@ -37,11 +37,13 @@ const CricketNews = () => {
                 <OwlCarousel className="owl-theme" loop items={1} margin={10} nav dots={false}>
                   {posts.map((post) => (
                     <div className="item relative" key={post.id}>
-                      <img
-                        src={post.featured_image_url }
-                        alt={post.title.rendered}
-                        className="rounded-[10px]"
+                      <img 
+                        src={post.featured_image_url || "/assets/images/svg/banner2.png"} 
+                        alt={post.title.rendered} 
+                        className="rounded-[10px]" 
+                        onError={(e) => e.target.src = "/assets/images/svg/banner2.png"} // Fallback image in case of error
                       />
+
                       <img src="/assets/images/svg/layer.png" alt="layer" className="absolute top-0 left-0" />
                       <div className="absolute bottom-10 px-4">
                         <a href={`/post/${post.id}`} className="text-white block text-lg mb-2 hover:!underline">
