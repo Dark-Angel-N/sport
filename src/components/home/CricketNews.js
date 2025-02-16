@@ -6,7 +6,7 @@ import { PiDotOutlineFill } from "react-icons/pi";
 import { useState, useEffect } from "react";
 import { FaArrowTrendUp } from "react-icons/fa6";
 
-const API_URL = "https://pranavakumar.com/wp-json/wp/v2/posts"; // Replace with your API
+const API_URL = "https://pranavakumar.com/wp-json/wp/v2/posts"; 
 
 const CricketNews = () => {
   const [posts, setPosts] = useState([]);
@@ -17,7 +17,7 @@ const CricketNews = () => {
       .then((data) => {
         const updatedPosts = data.map((post) => ({
           ...post,
-          featured_image_url: post.featured_image_url || "/assets/images/svg/banner2.png", // Fallback image
+          featured_image_url: post.featured_image_url || "https://pranavakumar.com/wp-content/uploads/2025/02/default.webp", 
         }));
         setPosts(updatedPosts);
       })
@@ -38,11 +38,9 @@ const CricketNews = () => {
                   {posts.map((post) => ( 
                     <div className="item relative" key={post.id}>
                       <img 
-                        src={"/assets/images/svg/banner2.png"} 
+                        src={post.featured_image_url} 
                         alt={post.title.rendered} 
-                        className="rounded-[10px]" 
-                        onError={(e) => e.target.src = "/assets/images/svg/banner2.png"} // Fallback image in case of error
-                      />
+                        className="rounded-[10px]" />
 
                       <img src="/assets/images/svg/layer.png" alt="layer" className="absolute top-0 left-0" />
                       <div className="absolute bottom-10 px-4">
