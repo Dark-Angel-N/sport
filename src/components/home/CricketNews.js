@@ -4,6 +4,7 @@ import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
 import { FaArrowTrendUp } from "react-icons/fa6";
 import { PiDotOutlineFill } from "react-icons/pi";
+import { Link } from 'react-router-dom';
 
 const API_URL = "https://pranavakumar.com/wp-json/wp/v2/posts?_embed=true";
 
@@ -78,8 +79,8 @@ const CricketNews = () => {
                           className='rounded-[10px] absolute top-0 left-0 h-[300px] w-full object-cover'
                         />
                         <div className='absolute bottom-10 px-4'>
-                          <a
-                            href="#"
+                        <a
+                            href={`/post/${post.slug}`}
                             className='text-white block text-lg mb-2 hover:!underline'
                           >
                             {post.title.rendered}
@@ -108,7 +109,7 @@ const CricketNews = () => {
                         Trending News <FaArrowTrendUp className='text-sm' />
                       </span>
                       <a
-                        href="#"
+                        href={`/post/${trendingPost.slug}`}
                         className='font-[600] mt-3 text-black block hover:!underline'
                       >
                         {trendingPost.title.rendered}
@@ -167,7 +168,7 @@ const CricketNews = () => {
                           <div className='bg-[#E8E8E8]/50 mt-3 p-3 rounded d-flex gap-3'>
                             <div>
                               <a
-                                href="#"
+                                href={`/post/${post.slug}`}
                                 className='text-[14px] block hover:!underline text-black mb-2 text-justify'
                               >
                                 {post.title.rendered}

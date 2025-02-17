@@ -60,6 +60,7 @@ import Events from "./components/otherPages/Events.js";
 import WebStories from "./components/otherPages/WebStories.js";
 import Quizzes from "./components/otherPages/Quizzes.js";
 import InternalPage from "./components/otherPages/InternalPage.js";
+import SinglePost from './pages/SinglePost.jsx';
 
 function App() {
   return (
@@ -67,6 +68,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Wrapper />}>
           <Route path="/" element={<Home />} />
+          <Route path="/post/:slug" element={<SinglePost />} />
 
           <Route path="/football" element={<FootBall />} />
           <Route path="/football/schedule" element={<FootballSchedule />} />
