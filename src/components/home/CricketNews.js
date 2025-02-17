@@ -70,12 +70,12 @@ const CricketNews = () => {
                         <img
                           src={featuredImage}
                           alt={post.title.rendered}
-                          className='rounded-[10px]'
+                          className="rounded-[10px] h-[300px] w-full object-cover"
                         />
                         <img
                           src="/assets/images/svg/layer.png"
                           alt="layer"
-                          className='absolute top-0 left-0'
+                          className='rounded-[10px] absolute top-0 left-0 h-[300px] w-full object-cover'
                         />
                         <div className='absolute bottom-10 px-4'>
                           <a
