@@ -68,7 +68,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Wrapper />}>
           <Route path="/" element={<Home />} />
-          <Route path="/post/:slug" element={<SinglePost />} />
+          <Route path="/:slug" element={<SinglePost />} />
 
           <Route path="/football" element={<FootBall />} />
           <Route path="/football/schedule" element={<FootballSchedule />} />
@@ -118,7 +118,7 @@ function App() {
           <Route path="/badminton/commonwealth-games" element={<BadmintonGames />} />
           <Route path="/badminton/schedule" element={<BadmintonSchedule />} />
 
-          <Route path="/cricket-news" element={<CricketNews />} />          
+                   
           <Route path="/health-fitness" element={<HealthFitness />} />          
           <Route path="/about-us" element={<About />} />
           <Route path="/contact-us" element={<Contact />} />

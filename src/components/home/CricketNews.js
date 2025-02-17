@@ -80,7 +80,7 @@ const CricketNews = () => {
                         />
                         <div className='absolute bottom-10 px-4'>
                         <a
-                            href={`/post/${post.slug}`}
+                            href={`/${post.slug}`}
                             className='text-white block text-lg mb-2 hover:!underline'
                           >
                             {post.title.rendered}
@@ -109,7 +109,7 @@ const CricketNews = () => {
                         Trending News <FaArrowTrendUp className='text-sm' />
                       </span>
                       <a
-                        href={`/post/${trendingPost.slug}`}
+                        href={`/${trendingPost.slug}`}
                         className='font-[600] mt-3 text-black block hover:!underline'
                       >
                         {trendingPost.title.rendered}
@@ -168,7 +168,7 @@ const CricketNews = () => {
                           <div className='bg-[#E8E8E8]/50 mt-3 p-3 rounded d-flex gap-3'>
                             <div>
                               <a
-                                href={`/post/${post.slug}`}
+                                href={`/${post.slug}`}
                                 className='text-[14px] block hover:!underline text-black mb-2 text-justify'
                               >
                                 {post.title.rendered}
