@@ -51,45 +51,54 @@ const CricketNews = () => {
             <div className="row gy-4">
               {/* Left Column: Slider & Trending News */}
               <div className="col-xl-7 news_slider">
-                <OwlCarousel className='owl-theme' loop items={1} margin={10} nav dots={false}>
-                  {sliderPosts.length > 0 ? (
-                    sliderPosts.map((post) => {
-                      const featuredImage =
-                        post._embedded?.["wp:featuredmedia"]?.[0]?.source_url ||
-                        FALLBACK_SLIDER;
-                      return (
-                        <div key={post.id} className='item relative'>
-                          <img
-                            src={featuredImage}
-                            alt={post.title.rendered}
-                            className='rounded-[10px]'
-                          />
-                          <img
-                            src="/assets/images/svg/layer.png"
-                            alt="layer"
-                            className='absolute top-0 left-0'
-                          />
-                          <div className='absolute bottom-10 px-4'>
-                            <a
-                              href="#"
-                              className='text-white block text-lg mb-2 hover:!underline'
-                            >
-                              {post.title.rendered}
-                            </a>
-                            <div className='text-white font-[300] text-sm d-flex items-center gap-3'>
-                              <span>
-                                By {post._embedded?.author?.[0]?.name || "Unknown Author"}
-                              </span>
-                              <span>{new Date(post.date).toLocaleDateString()}</span>
-                            </div>
+              <OwlCarousel
+                key={sliderPosts.length}  // forces re-mount when sliderPosts updates
+                className='owl-theme'
+                loop
+                items={1}
+                margin={10}
+                nav
+                dots={false}
+              >
+                {sliderPosts.length > 0 ? (
+                  sliderPosts.map((post) => {
+                    const featuredImage =
+                      post._embedded?.["wp:featuredmedia"]?.[0]?.source_url ||
+                      FALLBACK_SLIDER;
+                    return (
+                      <div key={post.id} className='item relative'>
+                        <img
+                          src={featuredImage}
+                          alt={post.title.rendered}
+                          className='rounded-[10px]'
+                        />
+                        <img
+                          src="/assets/images/svg/layer.png"
+                          alt="layer"
+                          className='absolute top-0 left-0'
+                        />
+                        <div className='absolute bottom-10 px-4'>
+                          <a
+                            href="#"
+                            className='text-white block text-lg mb-2 hover:!underline'
+                          >
+                            {post.title.rendered}
+                          </a>
+                          <div className='text-white font-[300] text-sm d-flex items-center gap-3'>
+                            <span>
+                              By {post._embedded?.author?.[0]?.name || "Unknown Author"}
+                            </span>
+                            <span>{new Date(post.date).toLocaleDateString()}</span>
                           </div>
                         </div>
-                      );
-                    })
-                  ) : (
-                    <p className="text-center">Loading...</p>
-                  )}
-                </OwlCarousel>
+                      </div>
+                    );
+                  })
+                ) : (
+                  <p className="text-center">Loading...</p>
+                )}
+              </OwlCarousel>
+
 
                 {/* Trending News Block */}
                 {trendingPost && (
